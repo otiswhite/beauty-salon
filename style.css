@@ -1,0 +1,502 @@
+/* START RESET */
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+ul,
+ol,
+li,
+a {
+	list-style: none;
+	text-decoration: none;
+	color: unset;
+}
+
+a,
+li,
+button {
+	cursor: pointer;
+	font: inherit;
+}
+
+/* END RESET */
+
+/* START VARIABLES */
+
+:root {
+	/* fonts */
+	--font-primary: "Open Sans", sans-serif;
+	--font-secondary: "Noto Serif", serif;
+	/* colors from darkest */
+	--color-black: #000; /* white font */
+	--color-choco-cosmos: #461222; /* white font */
+	--color-choco-cosmos-transparent: rgb(70, 18, 34, 0.5); /* white font */
+	--color-cordovan: #8c2f39; /* white font */
+	--color-cordovan-transparent: rgb(140, 47, 57, 0.7); /* white font */
+	--color-redwood: #b23a48; /* white font */
+	--color-redwood-transparent: rgb(178, 58, 72, 0.6); /* white font */
+	--color-light-coral: #f08080; /* black font */
+	--color-coral-pink: #f4978e; /* black font */
+	--color-melon: #fcb9b2; /* black font */
+	--color-melon-transparent: rgb(252, 185, 178, 0.75); /* black font */
+	--color-apricot: #fed0bb; /* black font */
+	--color-light-orange: #ffdab9; /* black font */
+	--color-white: #fff; /* black font */
+}
+
+body {
+	font-family: var(--font-primary);
+}
+
+/* END VARIABLES */
+
+/* START LAYOUT AND UTILITIES */
+
+body {
+	min-height: 100vh;
+}
+
+.visible {
+	opacity: 0;
+}
+
+.disappear {
+	opacity: 0;
+	height: 0px;
+	width: 0px;
+}
+
+.body-wrapper {
+	min-height: 100vh;
+	display: grid;
+}
+
+.btn {
+	padding: 0.75rem 1.75rem;
+	border: none;
+	border-radius: 5px;
+	color: var(--color-black);
+	background-color: var(--color-melon);
+	transition: background-color 0.2s ease-in-out;
+	letter-spacing: 1.5px;
+}
+
+.btn:hover {
+	background-color: var(--color-light-coral);
+}
+
+.stop-scrolling {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
+/* END LAYOUT AND UTILITIES*/
+
+/* START NAVBAR */
+
+.navbar {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	padding: 2rem;
+	text-align: center;
+	max-height: 100vh;
+}
+
+/* logo */
+.logo {
+	color: var(--color-cordovan);
+}
+
+.logo .logo-title {
+	font-size: 1.75rem;
+	letter-spacing: 1.5px;
+}
+
+.logo .logo-title-emp {
+	font-weight: 600;
+}
+
+.logo .logo-subtitle {
+	display: block;
+	padding-top: 0.5rem;
+	margin-top: 0.5rem;
+	border-top: 1px solid var(--color-melon);
+	font-size: 1.05rem;
+	font-weight: 300;
+	letter-spacing: 1.5px;
+}
+
+/* social links */
+.social {
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+}
+
+/* hide social links in the header on smaller screens */
+@media (min-width: 700px) {
+	.social {
+		opacity: 1;
+		width: unset;
+		height: unset;
+		display: flex;
+		font-size: 1.25rem;
+		color: var(--color-cordovan);
+	}
+
+	.social-link {
+		padding: 0.5rem;
+	}
+
+	.logo {
+		padding-left: 4rem;
+	}
+
+	.logo .logo-title {
+		font-size: 2.25rem;
+		letter-spacing: 2px;
+	}
+
+	.logo .logo-subtitle {
+		font-size: 1.25rem;
+	}
+
+	.navbar {
+		justify-content: space-around;
+	}
+}
+
+/* menu */
+.menu {
+	color: var(--color-cordovan);
+	font-size: 1.25rem;
+	border: none;
+	background-color: var(--color-white);
+	z-index: 10;
+}
+
+.menu-button {
+}
+
+.menu-button .bar {
+	display: block;
+	width: 25px;
+	height: 2.5px;
+	margin: 5px;
+	-webkit-transition: all 0.2s ease-in-out;
+	transition: all 0.25s ease-in-out;
+	background-color: var(--color-cordovan);
+}
+
+#menu-btn.active .bar:nth-child(1) {
+	transform: translateY(8px) rotate(45deg);
+}
+#menu-btn.active .bar:nth-child(2) {
+	opacity: 0;
+}
+#menu-btn.active .bar:nth-child(3) {
+	transform: translateY(-7px) rotate(-45deg);
+}
+
+#menu-btn.active {
+	background-color: var(--color-melon);
+}
+
+#menu-btn.active .menu-button .bar {
+	background-color: var(--color-black);
+}
+
+.menu-button .middle {
+	width: 30px;
+}
+
+.menu-open {
+	text-align: center;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 110%;
+	background-color: var(--color-melon);
+	font-size: 1.25rem;
+}
+
+.menu-wrapper {
+	display: flex;
+	justify-content: center;
+	height: 100%;
+}
+
+.menu-links {
+	align-self: center;
+}
+
+.menu-open.disappear {
+	opacity: 0;
+	height: 0px;
+	/* width: 0px; */
+}
+
+.menu-link {
+	padding: 0.75rem 0;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+}
+
+.menu-link:hover {
+	color: var(--color-redwood);
+}
+
+/* END NAVBAR */
+
+/* START MAIN */
+
+/* welcome section */
+.section {
+	position: relative;
+	text-align: center;
+	padding: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* background-color: var(--color-cordovan-transparent); */
+	background-color: var(--color-cordovan-transparent);
+	color: var(--color-white);
+}
+
+.welcome-background-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("./imgs/welcome-background-jamie-street-aMuq-Xz7R_M-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+}
+
+.welcome .welcome-logo {
+	/* color: var(--color-cordovan); */
+	color: var(--color-white);
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+.welcome-logo-block {
+	display: block;
+	letter-spacing: 2px;
+	padding-top: 0.25rem;
+	font-size: 2rem;
+}
+
+.welcome-logo-emp {
+	font-weight: 600;
+}
+
+.section-p {
+	/* margin: auto; */
+	padding: 2em;
+	max-width: 45em;
+	letter-spacing: 1.5px;
+	/* text-shadow: 0.1px 0.1px var(--color-white); */
+	font-weight: 300;
+}
+/* welcome section vertical decoration lines */
+.welcome-logo::before {
+	content: "";
+	display: block;
+	height: 75px;
+	width: 1px;
+	background-color: var(--color-melon);
+	margin: 2rem auto 2rem auto;
+}
+
+.btn-line-cont::after {
+	content: "";
+	display: block;
+	height: 75px;
+	width: 1px;
+	background-color: var(--color-melon);
+	margin: auto;
+	margin: 1.5rem;
+}
+
+/* media query */
+@media (min-width: 750px) {
+	/* larger text on larger screens */
+	.welcome .welcome-logo {
+		font-size: 2rem;
+	}
+	.welcome-logo-block {
+		font-size: 2.5rem;
+	}
+	.section-p {
+		font-size: 1.1rem;
+	}
+}
+
+/* treatments section */
+.treatments {
+	color: var(--color-cordovan);
+	text-align: center;
+	padding: 2rem 0;
+}
+
+.treatments-headline {
+	text-transform: uppercase;
+	font-weight: 300;
+	letter-spacing: 2px;
+	padding: 2rem;
+}
+
+/* FlickityCarousel  */
+.gallery {
+	/* background: var(--color-light-orange); */
+	height: 500px;
+}
+
+.gallery-cell {
+	width: 90%;
+	height: 100%;
+	margin-right: 10px;
+	counter-increment: gallery-cell;
+	text-transform: uppercase;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+/* change width at larger screens */
+@media (min-width: 700px) {
+	.gallery {
+		height: 500px;
+	}
+
+	.gallery-cell {
+		width: 60%;
+	}
+}
+
+.gallery-cell:hover {
+	opacity: 0.8;
+}
+
+.gallery-cell:nth-child(1) {
+	background: url("./imgs/lips-freestocks-YGmk9UZMdZg-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.gallery-cell:nth-child(2) {
+	background: url("./imgs/mask-engin-akyurt-g-m8EDc4X6Q-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.gallery-cell:nth-child(3) {
+	background: url("./imgs/nails-giorgio-trovato-gb6gtiTZKB8-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.gallery-cell:nth-child(4) {
+	background: url("./imgs/eyelashes-antonika-chanel-RJCslxmvBcs-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.gallery-cell:nth-child(5) {
+	background: url("./imgs/products-christin-hume-0MoF-Fe0w0A-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* cell number */
+/* .gallery-cell:before {
+	display: block;
+	text-align: center;
+	content: counter(gallery-cell);
+	line-height: 200px;
+	font-size: 80px;
+	color: white;
+} */
+
+.treatment-line {
+	color: var(--color-cordovan);
+	width: 150px;
+	margin: 0 auto 2rem auto;
+}
+
+/* reviews section */
+.review {
+	margin: 2rem 0;
+	padding: 2rem 0;
+}
+
+.review-p {
+	padding-bottom: 0.5rem;
+}
+
+.review blockquote {
+	padding-bottom: 2rem;
+	font-weight: 400;
+}
+
+.review-background-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("./imgs/flowers-background-priscilla-du-preez-XDvEtuQ7ego-unsplash.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	z-index: -1;
+}
+
+/* END MAIN */
+
+/* START FOOTER */
+
+.footer {
+	align-self: flex-end;
+	text-align: center;
+	margin: 2rem 0;
+	color: var(--color-cordovan);
+}
+
+.footer > .logo > .logo-title {
+	font-size: 1.75rem;
+}
+
+.footer .logo {
+	padding-left: 0;
+}
+
+.footer-links {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+.footer-links .menu-link {
+	padding: 1rem;
+}
+
+.footer-links .large {
+	display: none;
+}
+
+/* show all the links on the large screens */
+@media (min-width: 800px) {
+	.footer-links .large {
+		display: flex;
+	}
+	.small {
+		display: none;
+	}
+}
+
+/* END FOOTER */

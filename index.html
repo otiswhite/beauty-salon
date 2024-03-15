@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Salón Krása, Kozmetika a Vizáž</title>
+		<!-- FONTS Google Fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<!-- ICONS Font Awesome -->
+		<script
+			src="https://kit.fontawesome.com/de04a45e16.js"
+			crossorigin="anonymous"
+		></script>
+		<!-- Flickity CSS for carousel-->
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+		/>
+		<!-- CSS Custom-->
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="body-wrapper">
+			<!-- START HEADER -->
+			<header class="header">
+				<!-- navbar -->
+				<nav class="navbar">
+					<!-- menu button -->
+					<button class="menu" id="menu-btn">
+						<div class="menu-button">
+							<span class="bar"></span>
+							<span class="bar middle"></span>
+							<span class="bar"></span>
+						</div>
+					</button>
+					<!-- logo -->
+					<div class="logo">
+						<a class="logo-title" href="#"
+							>Salón <span class="logo-title-emp">Krása</span
+							><span class="logo-subtitle">KOZMETIKA & VIZÁŽ</span></a
+						>
+					</div>
+					<!-- social link -->
+					<div class="social">
+						<a href="#f" class="social-link facebook"
+							><i class="fa-brands fa-facebook"></i
+						></a>
+						<a href="#t" class="social-link twitter"
+							><i class="fa-brands fa-twitter"></i
+						></a>
+						<a href="#i" class="social-link instagram"
+							><i class="fa-brands fa-instagram"></i
+						></a>
+					</div>
+				</nav>
+			</header>
+			<!-- menu-open -->
+			<div class="menu-open disappear">
+				<div class="menu-wrapper">
+					<ul class="menu-links">
+						<li class="menu-link">O nás</li>
+						<li class="menu-link">Služby</li>
+						<li class="menu-link">Produkty</li>
+						<li class="menu-link">Cenník</li>
+						<li class="menu-link">Blog</li>
+						<li class="menu-link">Kontakt</li>
+					</ul>
+				</div>
+			</div>
+			<!-- END HEADER -->
+
+			<!-- START MAIN -->
+			<main class="main">
+				<!-- welcome section -->
+				<section class="welcome section">
+					<div class="welcome-background-image"></div>
+					<h1 class="welcome-logo">
+						Víta Vás
+						<span class="welcome-logo-block"
+							>Salón <span class="welcome-logo-emp">Krása</span></span
+						>
+					</h1>
+					<p class="section-p">
+						Salón Krása je miestom krásy, relaxu a pokoja. Poskytujeme
+						profesionálne služby v oblasti starostlivosti o pleť, vizáž, líčenie
+						a predaj kozmetických produktov pod jednou strechou.
+					</p>
+					<button class="btn section-btn">Kozmetické Kúry</button>
+					<div class="btn-line-cont"></div>
+				</section>
+
+				<!-- treatments / carousel section -->
+				<section class="treatments">
+					<h2 class="treatments-headline">Ponúkané procedúry</h2>
+					<hr class="treatment-line" />
+					<div class="treatments-carousel">
+						<div
+							class="gallery js-flickity"
+							data-flickity-options='{ "wrapAround": true, "autoPlay": true }'
+						>
+							<a href="#" class="gallery-cell"
+								><div class="gallery-cell-link">Procedúra 1</div></a
+							>
+							<a href="#" class="gallery-cell"
+								><div class="gallery-cell-link">Procedúra 2</div></a
+							>
+							<a href="#" class="gallery-cell"
+								><div class="gallery-cell-link">Procedúra 3</div></a
+							>
+							<a href="#" class="gallery-cell"
+								><div class="gallery-cell-link">Procedúra 4</div></a
+							>
+							<a href="#" class="gallery-cell"
+								><div class="gallery-cell-link">Procedúra 5</div></a
+							>
+						</div>
+					</div>
+				</section>
+
+				<!-- reviews section -->
+				<section class="section review">
+					<div class="review-background-image"></div>
+					<p class="section-p review-p">
+						"Kozmetický salón som objavila len náhodne, nakoľko je podobných
+						salónov veľa a je ťažké vybrať naozaj kvalitný s primeranými cenami.
+						Po prvej návšteve som bola veľmi milo prekvapená, príjemné
+						prostredie, profesionálny prístup, kvalitná kozmetika a veľmi milý
+						personál.Už teraz sa teším na ďalšiu návštevu, oddych a
+						starostlivosť."
+					</p>
+					<blockquote>- Ema Potočná</blockquote>
+					<button class="btn section-btn">Odporúčania zákazníkov</button>
+				</section>
+			</main>
+
+			<!-- END MAIN -->
+
+			<!-- START FOOTER -->
+			<footer class="footer">
+				<ul class="footer-links">
+					<span class="large">
+						<li class="menu-link">O nás</li>
+						<li class="menu-link">Služby</li>
+						<li class="menu-link">Produkty</li>
+						<li class="menu-link">Cenník</li>
+						<li class="menu-link">Blog</li>
+						<li class="menu-link">Kontakt</li>
+					</span>
+					<li class="menu-link small">Cenník</li>
+					<li class="menu-link small">Blog</li>
+					<li class="menu-link small">Kontakt</li>
+				</ul>
+
+				<div class="logo logo-address">
+					<a class="logo-title" href="#"
+						>Salón <span class="logo-title-emp">Krása</span></a
+					>
+				</div>
+
+				<div class="footer-links"></div>
+				<div class="rights-credit">
+					<p>&copy 2024</p>
+				</div>
+				<div class="footer-links-other"></div>
+			</footer>
+			<!-- END FOOTER -->
+		</div>
+
+		<!-- Flickity JS for carousel -->
+		<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+		<!-- JS Custom -->
+		<script src="app.js"></script>
+	</body>
+</html>
